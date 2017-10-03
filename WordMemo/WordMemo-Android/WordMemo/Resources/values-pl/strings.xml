@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="application_name">Słówkacz</string>
+	<string name="btn_title_search">Szukaj</string>
+	<string name="nav_title_wordlist">Lista słówek</string>
+	<string name="nav_title_export_words">Eksportuj słówka</string>
+	<string name="nav_title_settings">Ustawienia</string>
+
+  <string name="text_no_data_on_list">Brak słówek</string>
+  <string name="text_view_base_word">słówko</string>
+  <string name="text_view_word_translation">tłumaczenie</string>
+</resources>

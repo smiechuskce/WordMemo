@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="WordMemo.WordMemo" android:versionCode="0" android:versionName="0.1-alpha" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="25" />
+	<application android:label="@string/application_name"
+							 android:icon="@mipmap/ic_launcher"
+							 android:theme="@style/main_app_style" />
+</manifest>
