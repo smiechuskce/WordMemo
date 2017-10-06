@@ -1,5 +1,0 @@
-D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo.Models\bin\Debug\WordMemo.Models.dll
-D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo.Models\bin\Debug\WordMemo.Models.pdb
-D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo.Models\obj\Debug\WordMemo.Models.dll
-D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo.Models\obj\Debug\WordMemo.Models.pdb
-D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo.Models\obj\Debug\WordMemo.Models.csprojResolveAssemblyReference.cache

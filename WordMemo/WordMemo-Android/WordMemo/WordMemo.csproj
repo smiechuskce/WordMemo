@@ -268,12 +268,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu_white_36dp.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WordMemo.Models\WordMemo.Models.csproj">
-      <Project>{8a80cf16-b7f3-464a-afb4-0dc18272e828}</Project>
-      <Name>WordMemo.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
