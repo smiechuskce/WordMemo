@@ -30,7 +30,7 @@ namespace WordMemo.ViewModels
         }
     }
 
-    public class Words
+    public class Words // Temporary model initiation class
     {
         static WordViewModel[] _mBuiltInWordsViewModel =
         {

@@ -7,7 +7,7 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\Wo
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\System.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\System.Xml.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\System.Xml.Linq.dll
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\WordMemo.Models.dll
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\WordMemo.ViewModels.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\Xamarin.Android.Support.Annotations.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\Xamarin.Android.Support.Compat.dll

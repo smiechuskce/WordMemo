@@ -10,14 +10,14 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
-using WordMemo.Models;
+using WordMemo.ViewModels;
 using WordMemo.ViewHolders;
 
 namespace WordMemo.ViewAdapters
 {
     public class WordsAdapter : RecyclerView.Adapter
     {
-        public Words mWords;
+        private Words mWords;
         public WordsAdapter(Words words)
         {
             mWords = words;

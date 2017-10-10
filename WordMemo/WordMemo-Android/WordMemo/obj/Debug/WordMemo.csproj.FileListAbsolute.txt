@@ -90,7 +90,6 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\Wo
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.pdb
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.WordMemo.apk
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.WordMemo-Signed.apk
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.Models.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\Xamarin.Android.Support.Annotations.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\Xamarin.Android.Support.Compat.dll
@@ -105,8 +104,6 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\Wo
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\Xamarin.Android.Support.v7.CardView.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.Models.pdb
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.Models.dll.mdb
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\WordMemo.csprojResolveAssemblyReference.cache
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\XbdMerge\Xamarin.Android.Support.Annotations.dll.stamp
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll.stamp
@@ -171,6 +168,5 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\Wo
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\res\drawable-xxxhdpi\ic_menu_white_36dp.png
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\R.cs.flag
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\uploadflags.txt
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.dll.mdb
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\WordMemo.dll.mdb
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\obj\Debug\android\assets\WordMemo.Models.dll.mdb
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.ViewModels.dll
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo\bin\Debug\WordMemo.ViewModels.pdb

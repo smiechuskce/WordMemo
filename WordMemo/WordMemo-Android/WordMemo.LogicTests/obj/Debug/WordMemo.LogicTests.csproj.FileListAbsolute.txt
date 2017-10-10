@@ -1,0 +1,10 @@
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.LogicTests.dll
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.LogicTests.pdb
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\nunit.framework.dll
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.ViewModels.dll
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.ViewModels.pdb
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\nunit.framework.xml
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.csprojResolveAssemblyReference.cache
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.dll
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.pdb

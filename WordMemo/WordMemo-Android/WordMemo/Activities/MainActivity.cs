@@ -6,7 +6,7 @@ using Android.Support.V7.App;
 using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Support.V7.Widget;
-using WordMemo.Models;
+using WordMemo.ViewModels;
 using WordMemo.ViewAdapters;
 
 namespace WordMemo
