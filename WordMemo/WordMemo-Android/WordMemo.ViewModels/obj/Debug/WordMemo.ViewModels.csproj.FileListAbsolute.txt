@@ -2,3 +2,4 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\Wo
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.ViewModels\bin\Debug\WordMemo.ViewModels.pdb
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.ViewModels\obj\Debug\WordMemo.ViewModels.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.ViewModels\obj\Debug\WordMemo.ViewModels.pdb
+C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.ViewModels\obj\Debug\WordMemo.ViewModels.csprojResolveAssemblyReference.cache

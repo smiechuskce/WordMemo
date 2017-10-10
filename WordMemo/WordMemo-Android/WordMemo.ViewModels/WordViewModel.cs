@@ -32,26 +32,26 @@ namespace WordMemo.ViewModels
 
     public class Words // Temporary model initiation class
     {
-        static WordViewModel[] _mBuiltInWordsViewModel =
-        {
-            new WordViewModel { mWordID = 1,
-                       mWordBaseText = "issue",
-                       mWordTranslationText = "problem" },
+        //static WordViewModel[] _mBuiltInWordsViewModel =
+        //{
+        //    new WordViewModel { mWordID = 1,
+        //               mWordBaseText = "issue",
+        //               mWordTranslationText = "problem" },
 
-            new WordViewModel { mWordID = 2,
-                       mWordBaseText = "tempered",
-                       mWordTranslationText = "hartowany" },
+        //    new WordViewModel { mWordID = 2,
+        //               mWordBaseText = "tempered",
+        //               mWordTranslationText = "hartowany" },
 
-            new WordViewModel { mWordID = 3,
-                       mWordBaseText = "tighten",
-                       mWordTranslationText = "dokręcać, napinać" }
-        };
+        //    new WordViewModel { mWordID = 3,
+        //               mWordBaseText = "tighten",
+        //               mWordTranslationText = "dokręcać, napinać" }
+        //};
 
         private WordViewModel[] _mWordsViewModel;
 
         public Words()
         {
-            _mWordsViewModel = _mBuiltInWordsViewModel;
+            _mWordsViewModel = GetWordList();
         }
 
         public int NumWords
@@ -62,6 +62,26 @@ namespace WordMemo.ViewModels
         public WordViewModel this[int i]
         {
             get { return _mWordsViewModel[i];  }
+        }
+
+        private WordViewModel[] GetWordList()
+        {
+            WordViewModel[] words = new WordViewModel[]
+            {
+                new WordViewModel { mWordID = 1,
+                    mWordBaseText = "issue",
+                    mWordTranslationText = "problem" },
+
+                new WordViewModel { mWordID = 2,
+                           mWordBaseText = "tempered",
+                           mWordTranslationText = "hartowany" },
+
+                new WordViewModel { mWordID = 3,
+                           mWordBaseText = "tighten",
+                           mWordTranslationText = "dokręcać, napinać" }
+            };
+
+            return words;
         }
     }
 }
