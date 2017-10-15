@@ -10,15 +10,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
-using WordMemo.ViewModels;
 using WordMemo.ViewHolders;
+using WordMemo.ViewModels;
 
 namespace WordMemo.ViewAdapters
 {
     public class WordsAdapter : RecyclerView.Adapter
     {
-        private Words mWords;
-        public WordsAdapter(Words words)
+        private Word[] mWords;
+        public WordsAdapter(Word[] words)
         {
             mWords = words;
         }
@@ -38,6 +38,6 @@ namespace WordMemo.ViewAdapters
             vh.WordTranslation.Text = mWords[position].WordTranslationText;
         }
 
-        public override int ItemCount => mWords.NumWords;
+        public override int ItemCount => mWords.Length;
     }
 }

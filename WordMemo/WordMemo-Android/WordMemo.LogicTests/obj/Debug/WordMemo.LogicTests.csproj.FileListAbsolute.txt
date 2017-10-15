@@ -8,3 +8,13 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\Wo
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.csprojResolveAssemblyReference.cache
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.LogicTests.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.LogicTests.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\nunit.framework.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.ViewModels.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\WordMemo.ViewModels.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\bin\Debug\nunit.framework.xml
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.csprojResolveAssemblyReference.cache
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.LogicTests\obj\Debug\WordMemo.LogicTests.pdb

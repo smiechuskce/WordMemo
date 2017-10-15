@@ -18,7 +18,7 @@ public class WordsAdapter
 	}
 
 
-	public WordsAdapter () throws java.lang.Throwable
+	public WordsAdapter ()
 	{
 		super ();
 		if (getClass () == WordsAdapter.class)

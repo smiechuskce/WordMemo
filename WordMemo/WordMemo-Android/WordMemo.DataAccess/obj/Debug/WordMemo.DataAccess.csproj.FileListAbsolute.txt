@@ -12,3 +12,17 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\Wo
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo-Android\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\WordMemo.DataAccess.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\WordMemo.DataAccess.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\SQLite.Net.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Core.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Platform.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Xaml.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Core.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Core.xml
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Platform.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Xaml.pdb
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Xaml.xml
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.csprojResolveAssemblyReference.cache
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.dll
+D:\Dokumenty\Kamil\Projekty\Android\WordMemo\WordMemo-Android\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.pdb

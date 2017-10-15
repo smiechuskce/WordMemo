@@ -8,11 +8,11 @@ namespace WordMemo.LogicTests
     public class WordTests
     {
         [Test]
-        public void IsInitialWordListNotEmpty()
+        public void is_initial_word_list_not_empty()
         {
-            Words allWords = new Words();
+            WordManager allWordManager = new WordManager();
 
-            Assert.GreaterOrEqual(allWords.NumWords, 0);
+            Assert.GreaterOrEqual(allWordManager.NumWords, 0);
         }
     }
 }

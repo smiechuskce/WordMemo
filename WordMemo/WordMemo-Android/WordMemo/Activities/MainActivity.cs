@@ -18,14 +18,16 @@ namespace WordMemo
         private NavigationView _mNavigationView;
         private RecyclerView _mRecyclerView;
         private RecyclerView.LayoutManager _mLayoutManager;
-        private Words _mWords;
+        private Word[] _mWords;
         private WordsAdapter _mWordsAdapter;
+	    private WordManager _wordManager;
 
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
-            _mWords = new Words();
+            _wordManager = new WordManager();
+		    _mWords = _wordManager._mWords;
             _mWordsAdapter = new WordsAdapter(_mWords);
             
 			SetContentView(Resource.Layout.Main);
