@@ -25,16 +25,16 @@ namespace WordMemo.ViewModels
         //               mWordTranslationText = "dokręcać, napinać" }
         //};
 
-        public List<Word> Words { get; private set; }
+        private List<Word> Words { get; set; }
 
         public WordManager()
         {
-            Words = GetAll().ToList();
+
         }
 
         public int NumWords => Words.Count();
 
-        public IEnumerable<Word> GetAll()
+        public void Init()
         {
             Word[] words = new Word[]
             {
@@ -43,32 +43,35 @@ namespace WordMemo.ViewModels
                 new Word(3, "tighten", "dokręcać, napinać")
             };
 
-            return words;
+            Words = words.ToList();
+        }
+
+        public IEnumerable<Word> GetAll()
+        {
+            if (Words == null)
+                throw new ArgumentNullException();
+            else
+                return Words;
         }
 
         public Word this[int index] => Words[index];
 
-        public Word GetWord(int id)
+        public void Add(Word word)
+        {
+            Words.Add(word);
+        }
+
+        public void Delete(Word word)
         {
             throw new NotImplementedException();
         }
 
-        public void Add()
+        public Word GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SearchById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SearchByBaseText(string baseText)
+        public Word GetByBaseText(string baseText)
         {
             throw new NotImplementedException();
         }

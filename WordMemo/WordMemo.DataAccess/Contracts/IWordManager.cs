@@ -9,16 +9,16 @@ namespace WordMemo.DataAccess.Contracts
 {
     public interface IWordManager
     {
+        void Init();
+
         IEnumerable<Word> GetAll();
 
-        Word GetWord(int id);
+        void Add(Word word);
 
-        void Add();
+        void Delete(Word word);
 
-        void Delete();
+        Word GetById(int id);
 
-        void SearchById(int id);
-
-        void SearchByBaseText(string baseText);
+        Word GetByBaseText(string baseText);
     }
 }

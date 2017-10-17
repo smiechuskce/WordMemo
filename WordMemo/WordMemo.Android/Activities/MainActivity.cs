@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Android.App;
 using Android.Widget;
 using Android.OS;
@@ -7,6 +8,7 @@ using Android.Support.V7.App;
 using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Support.V7.Widget;
+using WordMemo.DataAccess.Contracts;
 using WordMemo.ViewModels;
 using WordMemo.ViewAdapters;
 
@@ -21,14 +23,15 @@ namespace WordMemo
         private RecyclerView.LayoutManager _mLayoutManager;
         private Word[] _mWords;
         private WordsAdapter _mWordsAdapter;
-	    private WordManager _wordManager;
+	    private IWordManager _wordManager;
 
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
             _wordManager = new WordManager();
-		    _mWords = _wordManager.Words.ToArray();
+            _wordManager.Init();
+		    _mWords = _wordManager.GetAll().ToArray();
             _mWordsAdapter = new WordsAdapter(_mWords);
             
 			SetContentView(Resource.Layout.Main);

@@ -9,6 +9,5 @@ C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo.DataAccess
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo.DataAccess\bin\Debug\Xamarin.Forms.Xaml.xml
-C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo.DataAccess\obj\Debug\WordMemo.csprojResolveAssemblyReference.cache
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.dll
 C:\Users\Smieszek Kamil\Documents\GitRepos\WordMemo\WordMemo\WordMemo.DataAccess\obj\Debug\WordMemo.DataAccess.pdb
