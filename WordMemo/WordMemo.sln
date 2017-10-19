@@ -5,11 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo.Android", "WordMemo.Android\WordMemo.Android.csproj", "{6198DB29-2DA9-4A4E-A311-E44A1DB4526F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo", "WordMemo.DataAccess\WordMemo.csproj", "{15AF57C3-D4B8-4802-A779-2C9E172A06CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo", "WordMemo\WordMemo.csproj", "{15AF57C3-D4B8-4802-A779-2C9E172A06CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo.Models", "WordMemo.Models\WordMemo.Models.csproj", "{0B5523C5-959E-4859-A993-B4023399C2B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo.LogicTests", "WordMemo.LogicTests\WordMemo.LogicTests.csproj", "{E541A5A4-FC48-4DF4-81DB-482E2A127B62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo.UnitTests", "WordMemo.UnitTests\WordMemo.UnitTests.csproj", "{E541A5A4-FC48-4DF4-81DB-482E2A127B62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

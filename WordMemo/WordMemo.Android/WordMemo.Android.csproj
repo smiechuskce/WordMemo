@@ -274,7 +274,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu_white_36dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WordMemo.DataAccess\WordMemo.csproj">
+    <ProjectReference Include="..\WordMemo\WordMemo.csproj">
       <Project>{15af57c3-d4b8-4802-a779-2c9e172a06ca}</Project>
       <Name>WordMemo</Name>
     </ProjectReference>
