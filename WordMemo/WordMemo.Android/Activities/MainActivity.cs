@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Android;
 using Android.App;
 using Android.Widget;
 using Android.OS;
@@ -55,7 +56,17 @@ namespace WordMemo
                 e.MenuItem.SetChecked(true);
                 _mDrawerLayout.CloseDrawers();
             };
+
+		    var fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+		    fab.Click += (sender, args) =>
+		    {
+		        Toast.MakeText(this.BaseContext, "Add new word button clicked!", ToastLength.Short).Show();
+		    };
+
 		}
+
+        // Capture and handle click event on FloatingActionButton
+        // If keyboard is being shown hide the FloatingActionButton
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -74,6 +85,7 @@ namespace WordMemo
 
             return base.OnOptionsItemSelected(item);
         }
+
     }
 }
 
