@@ -11,12 +11,19 @@ namespace WordMemo.UnitTests
     [TestFixture]
     public class WordTests
     {
-        public WordManager WordManager = new WordManager();
+        
+        public WordManager<Word> WordManager;
 
         [SetUp]
         public void Init()
         {
-            WordManager.Init();
+            WordManager = new WordManager<Word>();
+            WordManager.Init(new []
+            {
+                new Word(1, "issue", "problem"),
+                new Word(2, "tempered", "hartowany"),
+                new Word(3, "tighten", "dokręcać, napinać")
+            });
         }
 
         [Test]

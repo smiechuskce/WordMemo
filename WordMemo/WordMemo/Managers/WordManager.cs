@@ -4,11 +4,12 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 using WordMemo.DataAccess.Contracts;
 
 namespace WordMemo.ViewModels
 {
-    public class WordManager : IWordManager
+    public class WordManager<T> : ISyncWordManager<T> where T: Word
     {
         //static Word[] _mBuiltInWordsViewModel =
         //{
@@ -25,28 +26,24 @@ namespace WordMemo.ViewModels
         //               mWordTranslationText = "dokręcać, napinać" }
         //};
 
-        private List<Word> Words { get; set; }
+        private List<T> Words { get; set; }
 
         public WordManager()
         {
-
+            
         }
 
         public int NumWords => Words.Count();
 
-        public void Init()
+        public void Init(IEnumerable<T> words)
         {
-            Word[] words = new Word[]
-            {
-                new Word(1, "issue", "problem"),
-                new Word(2, "tempered", "hartowany"),
-                new Word(3, "tighten", "dokręcać, napinać")
-            };
+            if (words == null)
+                throw new ArgumentNullException();
 
             Words = words.ToList();
         }
 
-        public IEnumerable<Word> GetAll()
+        public IEnumerable<T> GetAll()
         {
             if (Words == null)
                 throw new ArgumentNullException();
@@ -54,24 +51,26 @@ namespace WordMemo.ViewModels
                 return Words;
         }
 
-        public Word this[int index] => Words[index];
+        public T this[int index] => Words[index];
 
-        public void Add(Word word)
+        public int Add(T word)
         {
             Words.Add(word);
+
+            return 1;
         }
 
-        public void Delete(Word word)
+        public void Delete(T word)
         {
             throw new NotImplementedException();
         }
 
-        public Word GetById(int id)
+        public T GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Word GetByBaseText(string baseText)
+        public T GetByBaseText(string baseText)
         {
             throw new NotImplementedException();
         }

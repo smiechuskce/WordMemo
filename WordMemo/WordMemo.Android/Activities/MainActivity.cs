@@ -24,14 +24,19 @@ namespace WordMemo
         private RecyclerView.LayoutManager _mLayoutManager;
         private Word[] _mWords;
         private WordsAdapter _mWordsAdapter;
-	    private IWordManager _wordManager;
+	    private ISyncWordManager<Word> _wordManager;
 
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
-            _wordManager = new WordManager();
-            _wordManager.Init();
+            _wordManager = new WordManager<Word>();
+            _wordManager.Init(new[]
+            {
+                new Word(1, "issue", "problem"),
+                new Word(2, "tempered", "hartowany"),
+                new Word(3, "tighten", "dokręcać, napinać")
+            });
 		    _mWords = _wordManager.GetAll().ToArray();
             _mWordsAdapter = new WordsAdapter(_mWords);
             

@@ -19,7 +19,7 @@ namespace WordMemo.ViewModels
         {
             WordID = wordID;
             WordBaseText = wordBaseText;
-            WordTranslationText = WordTranslationText;
+            WordTranslationText = wordTranslationText;
         }
 
         public override string ToString()
