@@ -60,7 +60,7 @@ namespace WordMemo.ViewModels
             return 1;
         }
 
-        public void Delete(T word)
+        public int Delete(T word)
         {
             throw new NotImplementedException();
         }

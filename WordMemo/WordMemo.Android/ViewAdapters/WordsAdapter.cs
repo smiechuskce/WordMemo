@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using Android.Support.V7.Widget;
@@ -12,10 +13,11 @@ namespace WordMemo.ViewAdapters
 {
     public class WordsAdapter : RecyclerView.Adapter
     {
-        private Word[] mWords;
-        public WordsAdapter(Word[] words)
+        private readonly List<Word> _words;
+
+        public WordsAdapter(List<Word> words)
         {
-            mWords = words;
+            _words = words;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -29,10 +31,17 @@ namespace WordMemo.ViewAdapters
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             WordsViewHolder vh = holder as WordsViewHolder;
-            vh.BaseWord.Text = mWords[position].WordBaseText;
-            vh.WordTranslation.Text = mWords[position].WordTranslationText;
+            vh.BaseWord.Text = _words[position].WordBaseText;
+            vh.WordTranslation.Text = _words[position].WordTranslationText;
         }
 
-        public override int ItemCount => mWords.Length;
+        public override int ItemCount => _words.Count;
+
+        public void AddWord(Word newWord)
+        {
+            _words.Add(newWord);
+
+            this.NotifyDataSetChanged();
+        }
     }
 }

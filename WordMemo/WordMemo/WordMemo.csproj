@@ -41,6 +41,7 @@
     <Compile Include="Contracts\ISyncWordManager.cs" />
     <Compile Include="Managers\PersistentWordManager.cs" />
     <Compile Include="Managers\WordManager.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Word.cs" />
   </ItemGroup>

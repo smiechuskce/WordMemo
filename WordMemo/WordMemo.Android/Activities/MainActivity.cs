@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Android;
 using Android.App;
@@ -22,7 +23,7 @@ namespace WordMemo
         private NavigationView _mNavigationView;
         private RecyclerView _mRecyclerView;
         private RecyclerView.LayoutManager _mLayoutManager;
-        private Word[] _mWords;
+        private List<Word> _mWords;
         private WordsAdapter _mWordsAdapter;
 	    private ISyncWordManager<Word> _wordManager;
 
@@ -37,7 +38,7 @@ namespace WordMemo
                 new Word(2, "tempered", "hartowany"),
                 new Word(3, "tighten", "dokręcać, napinać")
             });
-		    _mWords = _wordManager.GetAll().ToArray();
+		    _mWords = _wordManager.GetAll().ToList();         
             _mWordsAdapter = new WordsAdapter(_mWords);
             
 			SetContentView(Resource.Layout.Main);
@@ -65,7 +66,8 @@ namespace WordMemo
 		    var fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
 		    fab.Click += (sender, args) =>
 		    {
-		        Toast.MakeText(this.BaseContext, "Add new word button clicked!", ToastLength.Short).Show();
+                Word newWord = new Word();
+		        _mWordsAdapter.AddWord(newWord);
 		    };
 
 		}

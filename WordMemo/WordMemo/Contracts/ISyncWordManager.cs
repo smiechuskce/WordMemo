@@ -15,7 +15,7 @@ namespace WordMemo.DataAccess.Contracts
 
         int Add(T word);
 
-        void Delete(T word);
+        int Delete(T word);
 
         T GetById(int id);
 

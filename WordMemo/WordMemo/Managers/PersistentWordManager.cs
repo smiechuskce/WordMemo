@@ -23,9 +23,9 @@ namespace WordMemo.DataAccess.Managers
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
-            throw new NotImplementedException();
+            return await SQLiteConnection.Table<T>().ToListAsync();
         }
 
         public async Task<int> Add(T word)
@@ -33,9 +33,9 @@ namespace WordMemo.DataAccess.Managers
             return await SQLiteConnection.InsertAsync(word);
         }
 
-        public Task Delete(T word)
+        public async Task<int> Delete(T word)
         {
-            throw new NotImplementedException();
+            return await SQLiteConnection.DeleteAsync(word);
         }
 
         public Task<T> GetById(int id)

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using WordMemo.DataAccess.Annotations;
 
 namespace WordMemo.ViewModels
 {
-    public class Word
+    public class Word : INotifyPropertyChanged
     {
 
         public int WordID { get; private set; }
@@ -22,9 +25,22 @@ namespace WordMemo.ViewModels
             WordTranslationText = wordTranslationText;
         }
 
+        public Word()
+        {
+            
+        }
+
         public override string ToString()
         {
             return $"{WordID}. {WordBaseText} => {WordTranslationText}";
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

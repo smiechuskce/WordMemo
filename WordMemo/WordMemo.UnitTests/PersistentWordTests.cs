@@ -20,22 +20,27 @@ namespace WordMemo.UnitTests
         public IAsyncWordManager<Word> PersistentWordManager;
 
         [SetUp]
-        public void Init()
+        public async void Init()
         {
             InMemorySqliteConnection = new SQLiteAsyncConnection(":memory:");
 
             PersistentWordManager = new PersistentWordManager<Word>(InMemorySqliteConnection);
+            await CreateWordTable();
+        }
+
+        [Test]
+        public async void word_table_exists()
+        {
+
+            var result = await PersistentWordManager.GetByBaseText("order");
+
+            Assert.AreEqual(result.BaseText, "order");
         }
 
         [Test]
         public async void one_new_word_inserted_to_db()
         {
-            var newWord = new Word()
-            {
-                BaseText = "order",
-                TranslationText = "porządek"
-            };
-            var result = await CreateWordTable();
+            var newWord = GetWordEntity();
 
             var insertedWordsCount = await PersistentWordManager.Add(newWord);
 
@@ -43,18 +48,30 @@ namespace WordMemo.UnitTests
         }
 
         [Test]
-        public async void word_table_exists()
+        public void database_contains_no_words_after_word_delete()
         {
-            var tableResult = await CreateWordTable();
+            var newWord = GetWordEntity();
 
-            var result = await PersistentWordManager.GetByBaseText("order");
+            PersistentWordManager.Delete(newWord);
+            var dbRowsCount = PersistentWordManager.GetAll().Result.ToList().Count;
 
-            Assert.AreEqual(result.BaseText, "order");
+            Assert.AreEqual(dbRowsCount, 0);
         }
+
+        
 
         private async Task<CreateTablesResult> CreateWordTable()
         {
             return await InMemorySqliteConnection.CreateTableAsync<Word>();
+        }
+
+        private Word GetWordEntity()
+        {
+            return new Word()
+            {
+                BaseText = "order",
+                TranslationText = "porządek"
+            };
         }
 
     }

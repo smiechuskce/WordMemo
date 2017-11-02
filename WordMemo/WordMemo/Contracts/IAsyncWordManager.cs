@@ -15,7 +15,7 @@ namespace WordMemo.DataAccess.Contracts
 
         Task<int> Add(T word);
 
-        Task Delete(T word);
+        Task<int> Delete(T word);
 
         Task<T> GetById(int id);
 
