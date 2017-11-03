@@ -11,6 +11,7 @@ using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Support.V7.Widget;
 using WordMemo.DataAccess.Contracts;
+using WordMemo.DataAccess.Managers;
 using WordMemo.ViewModels;
 using WordMemo.ViewAdapters;
 
@@ -25,20 +26,15 @@ namespace WordMemo
         private RecyclerView.LayoutManager _mLayoutManager;
         private List<Word> _mWords;
         private WordsAdapter _mWordsAdapter;
-	    private ISyncWordManager<Word> _wordManager;
+	    private IAsyncManager<Word> _manager;
 
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
-            _wordManager = new WordManager<Word>();
-            _wordManager.Init(new[]
-            {
-                new Word(1, "issue", "problem"),
-                new Word(2, "tempered", "hartowany"),
-                new Word(3, "tighten", "dokręcać, napinać")
-            });
-		    _mWords = _wordManager.GetAll().ToList();         
+            _manager = new PersistentManager<Word>("WordMemo.db");
+		    _mWords = _manager.GetAll().Result.ToList();       
+              
             _mWordsAdapter = new WordsAdapter(_mWords);
             
 			SetContentView(Resource.Layout.Main);

@@ -7,7 +7,7 @@ using WordMemo.ViewModels;
 
 namespace WordMemo.DataAccess.Contracts
 {
-    public interface IWordManager<T>
+    public interface IManager<T>
     {
         
     }

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo.Android", "WordMem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo", "WordMemo\WordMemo.csproj", "{15AF57C3-D4B8-4802-A779-2C9E172A06CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo.Models", "WordMemo.Models\WordMemo.Models.csproj", "{0B5523C5-959E-4859-A993-B4023399C2B6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordMemo.UnitTests", "WordMemo.UnitTests\WordMemo.UnitTests.csproj", "{E541A5A4-FC48-4DF4-81DB-482E2A127B62}"
 EndProject
 Global
@@ -27,10 +25,6 @@ Global
 		{15AF57C3-D4B8-4802-A779-2C9E172A06CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15AF57C3-D4B8-4802-A779-2C9E172A06CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15AF57C3-D4B8-4802-A779-2C9E172A06CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B5523C5-959E-4859-A993-B4023399C2B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B5523C5-959E-4859-A993-B4023399C2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B5523C5-959E-4859-A993-B4023399C2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B5523C5-959E-4859-A993-B4023399C2B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E541A5A4-FC48-4DF4-81DB-482E2A127B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E541A5A4-FC48-4DF4-81DB-482E2A127B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E541A5A4-FC48-4DF4-81DB-482E2A127B62}.Release|Any CPU.ActiveCfg = Release|Any CPU

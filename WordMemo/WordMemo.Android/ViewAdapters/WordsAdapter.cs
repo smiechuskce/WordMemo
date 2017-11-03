@@ -31,8 +31,8 @@ namespace WordMemo.ViewAdapters
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             WordsViewHolder vh = holder as WordsViewHolder;
-            vh.BaseWord.Text = _words[position].WordBaseText;
-            vh.WordTranslation.Text = _words[position].WordTranslationText;
+            vh.BaseWord.Text = _words[position].BaseText;
+            vh.WordTranslation.Text = _words[position].TranslationText;
         }
 
         public override int ItemCount => _words.Count;

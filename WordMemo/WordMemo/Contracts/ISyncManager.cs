@@ -7,18 +7,18 @@ using WordMemo.ViewModels;
 
 namespace WordMemo.DataAccess.Contracts
 {
-    public interface IAsyncWordManager<T> : IWordManager<T>
+    public interface ISyncManager<T> : IManager<T>
     {
         void Init(IEnumerable<T> words = null);
 
-        Task<IEnumerable<T>> GetAll();
+        IEnumerable<T> GetAll();
 
-        Task<int> Add(T word);
+        int Add(T word);
 
-        Task<int> Delete(T word);
+        int Delete(T word);
 
-        Task<T> GetById(int id);
+        T GetById(int id);
 
-        Task<T> GetByBaseText(string baseText);
+        T GetByBaseText(string baseText);
     }
 }

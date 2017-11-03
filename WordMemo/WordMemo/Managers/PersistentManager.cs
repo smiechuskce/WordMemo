@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using WordMemo.DataAccess.Contracts;
-using WordMemo.Models;
+using WordMemo.ViewModels;
 
 namespace WordMemo.DataAccess.Managers
 {
-    public class PersistentWordManager<T> : IAsyncWordManager<T> where T : Word, new()
+    public class PersistentManager<T> : IAsyncManager<T> where T : Word, new()
     {
         private SQLiteAsyncConnection SQLiteConnection;
 
-        public PersistentWordManager(SQLiteAsyncConnection connection)
+        public PersistentManager(string dbPath)
         {
-            SQLiteConnection = connection;
+            SQLiteConnection = new SQLiteAsyncConnection(dbPath);
+            SQLiteConnection.CreateTableAsync<T>().Wait();
         }
 
         public void Init(IEnumerable<T> words)

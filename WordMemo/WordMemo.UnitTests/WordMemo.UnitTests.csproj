@@ -89,10 +89,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WordMemo.Models\WordMemo.Models.csproj">
-      <Project>{0b5523c5-959e-4859-a993-b4023399c2b6}</Project>
-      <Name>WordMemo.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WordMemo\WordMemo.csproj">
       <Project>{15AF57C3-D4B8-4802-A779-2C9E172A06CA}</Project>
       <Name>WordMemo</Name>

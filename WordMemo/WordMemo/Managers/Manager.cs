@@ -9,7 +9,7 @@ using WordMemo.DataAccess.Contracts;
 
 namespace WordMemo.ViewModels
 {
-    public class WordManager<T> : ISyncWordManager<T> where T: Word
+    public class Manager<T> : ISyncManager<T> where T: Word
     {
         //static Word[] _mBuiltInWordsViewModel =
         //{
@@ -28,7 +28,7 @@ namespace WordMemo.ViewModels
 
         private List<T> Words { get; set; }
 
-        public WordManager()
+        public Manager()
         {
             
         }

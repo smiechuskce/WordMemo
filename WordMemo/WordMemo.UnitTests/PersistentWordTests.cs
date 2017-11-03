@@ -8,31 +8,26 @@ using NUnit.Framework;
 using SQLite;
 using WordMemo.DataAccess.Contracts;
 using WordMemo.DataAccess.Managers;
-using WordMemo.Models;
+using WordMemo.ViewModels;
 
 namespace WordMemo.UnitTests
 {
     [TestFixture]
     public class PersistentWordTests
     {
-        public SQLiteAsyncConnection InMemorySqliteConnection;
-
-        public IAsyncWordManager<Word> PersistentWordManager;
+        public IAsyncManager<Word> PersistentManager;
 
         [SetUp]
         public async void Init()
         {
-            InMemorySqliteConnection = new SQLiteAsyncConnection(":memory:");
-
-            PersistentWordManager = new PersistentWordManager<Word>(InMemorySqliteConnection);
-            await CreateWordTable();
+            PersistentManager = new PersistentManager<Word>(":memory:");
         }
 
         [Test]
         public async void word_table_exists()
         {
 
-            var result = await PersistentWordManager.GetByBaseText("order");
+            var result = await PersistentManager.GetByBaseText("order");
 
             Assert.AreEqual(result.BaseText, "order");
         }
@@ -42,7 +37,7 @@ namespace WordMemo.UnitTests
         {
             var newWord = GetWordEntity();
 
-            var insertedWordsCount = await PersistentWordManager.Add(newWord);
+            var insertedWordsCount = await PersistentManager.Add(newWord);
 
             Assert.AreEqual(insertedWordsCount, 1);
         }
@@ -52,17 +47,10 @@ namespace WordMemo.UnitTests
         {
             var newWord = GetWordEntity();
 
-            PersistentWordManager.Delete(newWord);
-            var dbRowsCount = PersistentWordManager.GetAll().Result.ToList().Count;
+            PersistentManager.Delete(newWord);
+            var dbRowsCount = PersistentManager.GetAll().Result.ToList().Count;
 
             Assert.AreEqual(dbRowsCount, 0);
-        }
-
-        
-
-        private async Task<CreateTablesResult> CreateWordTable()
-        {
-            return await InMemorySqliteConnection.CreateTableAsync<Word>();
         }
 
         private Word GetWordEntity()
