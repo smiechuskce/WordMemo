@@ -13,7 +13,7 @@ namespace WordMemo.DataAccess.Contracts
 
         Task<IEnumerable<T>> GetAll();
 
-        Task<int> Add(T word);
+        Task<int> Save(T word);
 
         Task<int> Delete(T word);
 

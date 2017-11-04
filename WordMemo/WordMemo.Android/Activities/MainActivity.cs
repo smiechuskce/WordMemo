@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Support.V7.Widget;
 using WordMemo.DataAccess.Contracts;
 using WordMemo.DataAccess.Managers;
+using WordMemo.Utils;
 using WordMemo.ViewModels;
 using WordMemo.ViewAdapters;
 
@@ -20,22 +21,23 @@ namespace WordMemo
 	[Activity(Label = "WordMemo", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
 	public class MainActivity : AppCompatActivity
 	{
+	    public IAsyncManager<Word> WordManager { get; private set; }
+
         private DrawerLayout _mDrawerLayout;
         private NavigationView _mNavigationView;
         private RecyclerView _mRecyclerView;
         private RecyclerView.LayoutManager _mLayoutManager;
         private List<Word> _mWords;
         private WordsAdapter _mWordsAdapter;
-	    private IAsyncManager<Word> _manager;
-
+	   
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
-            _manager = new PersistentManager<Word>("WordMemo.db");
-		    _mWords = _manager.GetAll().Result.ToList();       
+		    WordManager = new PersistentWordManager<Word>(new FileHelper().GetLocalFilePath("WordMemo.db"));
+		    _mWords = WordManager.GetAll().Result.ToList();       
               
-            _mWordsAdapter = new WordsAdapter(_mWords);
+            _mWordsAdapter = new WordsAdapter(this, ref _mWords);
             
 			SetContentView(Resource.Layout.Main);
 

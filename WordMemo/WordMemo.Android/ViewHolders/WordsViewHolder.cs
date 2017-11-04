@@ -19,9 +19,9 @@ namespace WordMemo.ViewHolders
         public EditText WordTranslation { get; set; }
 
         public WordsViewHolder(View itemView) : base(itemView)
-        {
+        {           
             BaseWord = itemView.FindViewById<EditText>(Resource.Id.edit_text_base_word);
-            WordTranslation = itemView.FindViewById<EditText>(Resource.Id.edit_text_word_translation);
+            WordTranslation = itemView.FindViewById<EditText>(Resource.Id.edit_text_word_translation);     
         }
     }
 }

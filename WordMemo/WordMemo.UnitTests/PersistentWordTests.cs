@@ -18,9 +18,9 @@ namespace WordMemo.UnitTests
         public IAsyncManager<Word> PersistentManager;
 
         [SetUp]
-        public async void Init()
+        public void Init()
         {
-            PersistentManager = new PersistentManager<Word>(":memory:");
+            PersistentManager = new PersistentWordManager<Word>(":memory:");
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace WordMemo.UnitTests
         {
             var newWord = GetWordEntity();
 
-            var insertedWordsCount = await PersistentManager.Add(newWord);
+            var insertedWordsCount = await PersistentManager.Save(newWord);
 
             Assert.AreEqual(insertedWordsCount, 1);
         }

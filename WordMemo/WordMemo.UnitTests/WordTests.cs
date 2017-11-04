@@ -12,13 +12,13 @@ namespace WordMemo.UnitTests
     public class WordTests
     {
         
-        public Manager<Word> Manager;
+        public WordManager<Word> WordManager;
 
         [SetUp]
         public void Init()
         {
-            Manager = new Manager<Word>();
-            Manager.Init(new []
+            WordManager = new WordManager<Word>();
+            WordManager.Init(new []
             {
                 new Word(1, "issue", "problem"),
                 new Word(2, "tempered", "hartowany"),
@@ -33,7 +33,7 @@ namespace WordMemo.UnitTests
             // may be empty?
 
             // Act
-            var wordsCount = Manager.NumWords;
+            var wordsCount = WordManager.NumWords;
 
             // Assert
             Assert.GreaterOrEqual(wordsCount, 0);
@@ -42,9 +42,9 @@ namespace WordMemo.UnitTests
         [Test]
         public void initial_word_list_contains_more_than_3_words()
         {
-            Manager.Add(new Word(4, "test", "testować"));
+            WordManager.Add(new Word(4, "test", "testować"));
 
-            var wordsCount = Manager.NumWords;
+            var wordsCount = WordManager.NumWords;
 
             Assert.GreaterOrEqual(wordsCount, 4);
         }

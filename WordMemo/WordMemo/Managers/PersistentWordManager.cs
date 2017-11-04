@@ -9,11 +9,11 @@ using WordMemo.ViewModels;
 
 namespace WordMemo.DataAccess.Managers
 {
-    public class PersistentManager<T> : IAsyncManager<T> where T : Word, new()
+    public class PersistentWordManager<T> : IAsyncManager<T> where T : Word, new()
     {
         private SQLiteAsyncConnection SQLiteConnection;
 
-        public PersistentManager(string dbPath)
+        public PersistentWordManager(string dbPath)
         {
             SQLiteConnection = new SQLiteAsyncConnection(dbPath);
             SQLiteConnection.CreateTableAsync<T>().Wait();
@@ -29,8 +29,11 @@ namespace WordMemo.DataAccess.Managers
             return await SQLiteConnection.Table<T>().ToListAsync();
         }
 
-        public async Task<int> Add(T word)
+        public async Task<int> Save(T word)
         {
+            if (word.ID != 0)
+                return await SQLiteConnection.UpdateAsync(word);
+            
             return await SQLiteConnection.InsertAsync(word);
         }
 

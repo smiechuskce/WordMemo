@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using WordMemo.ViewHolders;
@@ -14,10 +15,12 @@ namespace WordMemo.ViewAdapters
     public class WordsAdapter : RecyclerView.Adapter
     {
         private readonly List<Word> _words;
+        private readonly MainActivity _activity;
 
-        public WordsAdapter(List<Word> words)
+        public WordsAdapter(MainActivity activity, ref List<Word> words)
         {
             _words = words;
+            _activity = activity;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -33,6 +36,18 @@ namespace WordMemo.ViewAdapters
             WordsViewHolder vh = holder as WordsViewHolder;
             vh.BaseWord.Text = _words[position].BaseText;
             vh.WordTranslation.Text = _words[position].TranslationText;
+
+            vh.BaseWord.FocusChange += (sender, args) =>
+            {
+                if (!args.HasFocus)
+                    _activity.WordManager.Save(_words[position]);
+            };
+
+            vh.WordTranslation.FocusChange += (sender, args) => 
+            {
+                if (!args.HasFocus)
+                    _activity.WordManager.Save(_words[position]);
+            };
         }
 
         public override int ItemCount => _words.Count;
