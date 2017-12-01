@@ -15,8 +15,8 @@ namespace WordMemo.ViewHolders
 {
     public class WordsViewHolder : RecyclerView.ViewHolder
     {
-        public EditText BaseWord { get; set; }
-        public EditText WordTranslation { get; set; }
+        public EditText BaseWord { get; private set; }
+        public EditText WordTranslation { get; private set; }
 
         public WordsViewHolder(View itemView) : base(itemView)
         {           

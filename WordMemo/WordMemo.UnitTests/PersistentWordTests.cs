@@ -20,7 +20,7 @@ namespace WordMemo.UnitTests
         [SetUp]
         public void Init()
         {
-            PersistentManager = new PersistentWordManager<Word>(":memory:");
+            PersistentManager = new PersistentWordManager<Word>("testdb.db");
         }
 
         [Test]

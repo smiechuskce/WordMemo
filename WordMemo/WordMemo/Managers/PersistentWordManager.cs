@@ -16,7 +16,7 @@ namespace WordMemo.DataAccess.Managers
         public PersistentWordManager(string dbPath)
         {
             SQLiteConnection = new SQLiteAsyncConnection(dbPath);
-            SQLiteConnection.CreateTableAsync<T>().Wait();
+            InitConnection();
         }
 
         public void Init(IEnumerable<T> words)
@@ -24,6 +24,12 @@ namespace WordMemo.DataAccess.Managers
             throw new NotImplementedException();
         }
 
+        public async void InitConnection()
+        {
+            await SQLiteConnection.CreateTableAsync<T>();
+        }
+
+        //public async Task<IEnumerable<T>> GetAll()
         public async Task<IEnumerable<T>> GetAll()
         {
             return await SQLiteConnection.Table<T>().ToListAsync();

@@ -6,6 +6,7 @@ using System.Text;
 using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Android.Widget;
 using WordMemo.ViewHolders;
 using WordMemo.ViewModels;
 
@@ -37,26 +38,39 @@ namespace WordMemo.ViewAdapters
             vh.BaseWord.Text = _words[position].BaseText;
             vh.WordTranslation.Text = _words[position].TranslationText;
 
-            vh.BaseWord.FocusChange += (sender, args) =>
+            vh.BaseWord.TextChanged += (sender, args) =>
             {
-                if (!args.HasFocus)
-                    _activity.WordManager.Save(_words[position]);
+                _words[position].BaseText = args.Text.ToString();
             };
 
-            vh.WordTranslation.FocusChange += (sender, args) => 
+            vh.WordTranslation.TextChanged += (sender, args) =>
+            {
+                _words[position].TranslationText = args.Text.ToString();
+            };
+
+            vh.BaseWord.FocusChange += async (sender, args) =>
             {
                 if (!args.HasFocus)
-                    _activity.WordManager.Save(_words[position]);
+                {
+                    string text = _words[position].BaseText;
+                    await _activity.WordLogic.SaveWord(_words[position]);
+                }                    
             };
+
+            vh.WordTranslation.FocusChange += async (sender, args) =>
+            {
+                if (!args.HasFocus)
+                    await _activity.WordLogic.SaveWord(_words[position]);
+            };
+
+            
         }
 
-        public override int ItemCount => _words.Count;
+        public override int ItemCount => _words?.Count ?? 0;
 
         public void AddWord(Word newWord)
         {
             _words.Add(newWord);
-
-            this.NotifyDataSetChanged();
         }
     }
 }

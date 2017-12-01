@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Android;
 using Android.App;
+using Android.Content;
 using Android.Widget;
 using Android.OS;
 using Android.Support.V4.Widget;
@@ -10,36 +12,38 @@ using Android.Support.V7.App;
 using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Support.V7.Widget;
+using Android.Views.InputMethods;
 using WordMemo.DataAccess.Contracts;
+using WordMemo.DataAccess.Logic;
 using WordMemo.DataAccess.Managers;
 using WordMemo.Utils;
 using WordMemo.ViewModels;
 using WordMemo.ViewAdapters;
+using WordMemo.ViewHolders;
 
 namespace WordMemo
 {
 	[Activity(Label = "WordMemo", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
 	public class MainActivity : AppCompatActivity
-	{
-	    public IAsyncManager<Word> WordManager { get; private set; }
-
+    { 
         private DrawerLayout _mDrawerLayout;
         private NavigationView _mNavigationView;
         private RecyclerView _mRecyclerView;
         private RecyclerView.LayoutManager _mLayoutManager;
         private List<Word> _mWords;
         private WordsAdapter _mWordsAdapter;
-	   
-		protected override void OnCreate(Bundle bundle)
+
+	    private int bottomPosition = 0;
+
+        public WordLogic WordLogic { get; private set; }
+
+        protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 
-		    WordManager = new PersistentWordManager<Word>(new FileHelper().GetLocalFilePath("WordMemo.db"));
-		    _mWords = WordManager.GetAll().Result.ToList();       
-              
-            _mWordsAdapter = new WordsAdapter(this, ref _mWords);
-            
-			SetContentView(Resource.Layout.Main);
+            Init();
+
+            SetContentView(Resource.Layout.Main);
 
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -53,21 +57,13 @@ namespace WordMemo
             _mLayoutManager = new LinearLayoutManager(this);
             
             _mRecyclerView.SetLayoutManager(_mLayoutManager);
-            _mRecyclerView.SetAdapter(_mWordsAdapter);
+            
 
             _mNavigationView.NavigationItemSelected += (sender, e) =>
             {
                 e.MenuItem.SetChecked(true);
                 _mDrawerLayout.CloseDrawers();
-            };
-
-		    var fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-		    fab.Click += (sender, args) =>
-		    {
-                Word newWord = new Word();
-		        _mWordsAdapter.AddWord(newWord);
-		    };
-
+            };		 
 		}
 
         // Capture and handle click event on FloatingActionButton
@@ -91,6 +87,51 @@ namespace WordMemo
             return base.OnOptionsItemSelected(item);
         }
 
+	    private async Task Init()
+	    {
+            WordLogic = new WordLogic(new PersistentWordManager<Word>(new FileHelper().GetLocalFilePath("WordMemo.db")));
+            await WordLogic.UpdateWordList();
+            _mWords = WordLogic.WordList;
+
+            _mWordsAdapter = new WordsAdapter(this, ref _mWords);
+            
+            _mRecyclerView.SetAdapter(_mWordsAdapter);
+
+	        _mRecyclerView.LayoutChange += (sender, args) =>
+	        {
+	            bottomPosition = args.Bottom;
+	        };
+
+            var fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            fab.Click += (sender, args) =>
+            {
+                Word newWord = new Word();
+                _mWordsAdapter.AddWord(newWord);
+                _mWordsAdapter.NotifyItemInserted(_mWordsAdapter.ItemCount - 1);
+
+                HideKeyboard();
+
+                _mRecyclerView.SmoothScrollToPosition(bottomPosition);
+
+            };
+
+	        _mRecyclerView.ChildViewAttachedToWindow += (sender, args) =>
+	        {
+	            View lastRow = _mRecyclerView.GetLayoutManager().GetChildAt(_mWordsAdapter.ItemCount - 1);
+
+	            if (lastRow != null && args.View == lastRow)
+	                lastRow.RequestFocus();
+	        };
+
+            _mRecyclerView.ClearFocus();
+            HideKeyboard();
+        }
+
+	    private void HideKeyboard()
+	    {
+            InputMethodManager inputMethod = (InputMethodManager)this.GetSystemService(Context.InputMethodService);
+            inputMethod.HideSoftInputFromWindow(this.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
+        }
     }
 }
 

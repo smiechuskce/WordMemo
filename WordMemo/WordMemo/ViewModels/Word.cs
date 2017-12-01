@@ -20,21 +20,31 @@ namespace WordMemo.ViewModels
 
         public string TranslationText { get; set; }
 
-        public Word(int wordID, string wordBaseText, string wordTranslationText)
+        public Word(string wordBaseText, string wordTranslationText)
         {
-            ID = wordID;
+            BaseText = wordBaseText;
+            TranslationText = wordTranslationText;
+        }
+
+        public Word(int id, string wordBaseText, string wordTranslationText)
+        {
+            ID = id;
             BaseText = wordBaseText;
             TranslationText = wordTranslationText;
         }
 
         public Word()
         {
-            
+            ID = 0;
+            BaseText = "";
+            TranslationText = "";
+
         }
-      
+
         public override string ToString()
         {
-            return $"{ID}. {BaseText} => {TranslationText}";
+            return ID + ". " + BaseText + " => " + TranslationText;
+            //return $"{ID}. {BaseText} => {TranslationText}";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
