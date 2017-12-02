@@ -27,11 +27,20 @@ namespace WordMemo.DataAccess.Logic
             await UpdateWordList();
         }
 
+        public async Task DeleteWord(Word word)
+        {
+            await _wordManager.Delete(word);
+        }
+
         public async Task UpdateWordList()
         {
+            IEnumerable<Word> words = await _wordManager.GetAll();
+            WordList = words?.ToList() ?? new List<Word>();
+        }
 
-            IEnumerable<Word> word = await _wordManager.GetAll();
-            WordList = word.ToList();
+        public async Task<IEnumerable<Word>> GetWords()
+        {
+            return await _wordManager.GetAll();
         }
     }
 }

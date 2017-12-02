@@ -37,6 +37,18 @@ namespace WordMemo.UnitTests
             Assert.AreEqual("1. robić => do", mWordLogic.WordList[0].ToString());
         }
 
+        [Test]
+        public async void word_is_being_deleted()
+        {
+            Word wordToDelete = new Word(1, "testować", "to Test");
+            await mWordLogic.SaveWord(wordToDelete);
+
+            await mWordLogic.DeleteWord(wordToDelete);
+            var wordsGetResult = await mWordLogic.GetWords();
+
+            Assert.AreEqual(wordsGetResult.ToList().Count, 0);
+        }
+
         public async Task SaveWord()
         {
             await mWordLogic.SaveWord(new Word("robić", "do"));

@@ -62,7 +62,7 @@ namespace WordMemo.ViewModels
 
         public int Delete(T word)
         {
-            throw new NotImplementedException();
+            return Words.Remove(Words.FirstOrDefault(w => w.ID == word.ID)) ? 1 : 0;
         }
 
         public T GetById(int id)

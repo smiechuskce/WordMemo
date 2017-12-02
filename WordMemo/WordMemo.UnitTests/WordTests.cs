@@ -48,5 +48,15 @@ namespace WordMemo.UnitTests
 
             Assert.GreaterOrEqual(wordsCount, 4);
         }
+
+        [Test]
+        public void word_is_being_deleted_from_initial_list()
+        {
+            Word word = new Word(2, "tempered", "hartowany");
+
+            int numDeleted = WordManager.Delete(word);
+
+            Assert.AreEqual(1, numDeleted);
+        }
     }
 }
