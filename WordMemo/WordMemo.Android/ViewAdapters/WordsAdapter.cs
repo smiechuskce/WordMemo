@@ -63,7 +63,18 @@ namespace WordMemo.ViewAdapters
                     await _activity.WordLogic.SaveWord(_words[position]);
             };
 
-            
+            vh.BaseWord.KeyPress += (sender, args) =>
+            {
+                if (args.KeyCode == Keycode.Enter)
+                {
+                    vh.WordTranslation.RequestFocus();
+                    args.Handled = true;
+                }
+                else
+                    args.Handled = false;
+            };
+
+
         }
 
         public override int ItemCount => _words?.Count ?? 0;

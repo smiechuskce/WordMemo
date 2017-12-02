@@ -64,6 +64,8 @@ namespace WordMemo
                 e.MenuItem.SetChecked(true);
                 _mDrawerLayout.CloseDrawers();
             };		 
+
+            Window.SetSoftInputMode(SoftInput.AdjustPan);
 		}
 
         // Capture and handle click event on FloatingActionButton
