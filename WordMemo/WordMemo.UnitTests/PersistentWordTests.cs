@@ -26,40 +26,55 @@ namespace WordMemo.UnitTests
         [Test]
         public async void word_table_exists()
         {
-
             var result = await PersistentManager.GetByBaseText("order");
 
-            Assert.AreEqual(result.BaseText, "order");
+            Assert.AreEqual("order", result.BaseText);
         }
 
         [Test]
         public async void one_new_word_inserted_to_db()
         {
-            var newWord = GetWordEntity();
+            var newWord = GetNewWordEntity();
 
             var insertedWordsCount = await PersistentManager.Save(newWord);
 
-            Assert.AreEqual(insertedWordsCount, 1);
+            Assert.AreEqual(1, insertedWordsCount);
         }
 
         [Test]
-        public void database_contains_no_words_after_word_delete()
+        public async void database_contains_no_words_after_word_delete()
         {
-            var newWord = GetWordEntity();
+            var newWord = GetExistingWordEntity();
 
-            PersistentManager.Delete(newWord);
-            var dbRowsCount = PersistentManager.GetAll().Result.ToList().Count;
+            await PersistentManager.Delete(newWord);
+            var dbRowsCount = await PersistentManager.GetAll();
 
-            Assert.AreEqual(dbRowsCount, 0);
+            Assert.AreEqual(0, dbRowsCount.ToList().Count);
         }
 
-        private Word GetWordEntity()
+        private Word GetExistingWordEntity()
+        {
+            return new Word()
+            {
+                ID = 1,
+                BaseText = "order",
+                TranslationText = "porządek"
+            };
+        }
+
+        private Word GetNewWordEntity()
         {
             return new Word()
             {
                 BaseText = "order",
                 TranslationText = "porządek"
             };
+        }
+
+        [TearDown]
+        public void Finish()
+        {
+            // TODO: Remove database file from executable path
         }
 
     }

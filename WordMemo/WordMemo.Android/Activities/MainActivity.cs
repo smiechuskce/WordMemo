@@ -91,7 +91,7 @@ namespace WordMemo
 
 	    private async Task Init()
 	    {
-            WordLogic = new WordLogic(new PersistentWordManager<Word>(new FileHelper().GetLocalFilePath("WordMemo.db")));
+            WordLogic = new WordLogic(new PersistentWordManager<Word>(new FileHelper(ExecutablePlatform.Anrdoid).GetLocalFilePath("WordMemo.db")));
             await WordLogic.UpdateWordList();
             _mWords = WordLogic.WordList;
 

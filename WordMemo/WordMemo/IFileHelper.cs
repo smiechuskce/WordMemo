@@ -9,5 +9,7 @@ namespace WordMemo.DataAccess
     public interface IFileHelper
     {
         string GetLocalFilePath(string filename);
+
+        int DeleteFile(string filename);
     }
 }

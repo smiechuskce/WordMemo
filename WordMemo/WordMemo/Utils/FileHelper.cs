@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using WordMemo.DataAccess;
 
 namespace WordMemo.Utils
@@ -15,30 +16,31 @@ namespace WordMemo.Utils
 
         public string GetLocalFilePath(string filename)
         {
-            string path = null; 
-            
+            string path = null;
+
             switch (platform)
             {
-                case ExecutablePlatform.Anrdoid:
+                case ExecutablePlatform.Android:
                     path = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                     break;
+
                 case ExecutablePlatform.PcRuntime:
                     path = AppDomain.CurrentDomain.BaseDirectory;
                     break;
             }
-            
+
             return path == null ? null : Path.Combine(path, filename);
         }
 
         public int DeleteFile(string filename)
         {
             throw new NotImplementedException();
-        } 
+        }
     }
 
     public enum ExecutablePlatform
     {
-        Anrdoid,
+        Android,
         iOS,
         PcRuntime
     }
