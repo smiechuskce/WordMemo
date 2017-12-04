@@ -8,6 +8,7 @@ using NUnit.Framework;
 using SQLite;
 using WordMemo.DataAccess.Contracts;
 using WordMemo.DataAccess.Managers;
+using WordMemo.UnitTests.Utils;
 using WordMemo.ViewModels;
 
 namespace WordMemo.UnitTests
@@ -15,12 +16,15 @@ namespace WordMemo.UnitTests
     [TestFixture]
     public class PersistentWordTests
     {
+        private string dbName;
+
         public IAsyncManager<Word> PersistentManager;
 
         [SetUp]
         public void Init()
         {
-            PersistentManager = new PersistentWordManager<Word>("testdb.db");
+            dbName = "testdb.db";
+            PersistentManager = new PersistentWordManager<Word>(dbName);
         }
 
         [Test]
@@ -72,9 +76,9 @@ namespace WordMemo.UnitTests
         }
 
         [TearDown]
-        public void Finish()
+        public async void Finish()
         {
-            // TODO: Remove database file from executable path
+            await PersistentManager.Delete(GetExistingWordEntity());
         }
 
     }

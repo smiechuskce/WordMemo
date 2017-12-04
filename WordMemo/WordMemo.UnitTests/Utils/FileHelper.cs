@@ -15,7 +15,22 @@ namespace WordMemo.UnitTests.Utils
 
         public int DeleteFile(string filename)
         {
-            throw new NotImplementedException();
+            string finalPath = GetLocalFilePath(filename);
+
+            if (File.Exists(finalPath))
+            {
+                try
+                {
+                    File.Delete(finalPath);
+                    return 1;
+                }
+                catch (IOException e)
+                {
+                    // TODO: Rewrite when the logging system will be ready
+                    System.Console.WriteLine(e.Message); 
+                }               
+            }
+            return 0;
         } 
     }
 }
