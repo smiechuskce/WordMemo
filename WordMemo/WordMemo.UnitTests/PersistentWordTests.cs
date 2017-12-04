@@ -30,9 +30,9 @@ namespace WordMemo.UnitTests
         [Test]
         public async void word_table_exists()
         {
-            var result = await PersistentManager.GetByBaseText("order");
+            var result = await PersistentManager.GetWordCount();
 
-            Assert.AreEqual("order", result.BaseText);
+            Assert.That(result, Is.GreaterThanOrEqualTo(0));
         }
 
         [Test]

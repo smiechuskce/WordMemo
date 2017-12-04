@@ -20,5 +20,7 @@ namespace WordMemo.DataAccess.Contracts
         Task<T> GetById(int id);
 
         Task<T> GetByBaseText(string baseText);
+
+        Task<int> GetWordCount();
     }
 }

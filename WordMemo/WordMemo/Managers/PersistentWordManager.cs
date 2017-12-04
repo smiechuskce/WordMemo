@@ -48,14 +48,20 @@ namespace WordMemo.DataAccess.Managers
             return await SQLiteConnection.DeleteAsync(word);
         }
 
-        public Task<T> GetById(int id)
+        public async Task<T> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await SQLiteConnection.Table<T>().Where(w => w.ID == id).FirstOrDefaultAsync();
         }
 
         public async Task<T> GetByBaseText(string baseText)
         {
             return await SQLiteConnection.Table<T>().Where(w => w.BaseText.Equals(baseText)).FirstOrDefaultAsync();
+        }
+
+        public async Task<int> GetWordCount()
+        {
+            var result = await SQLiteConnection.Table<T>().CountAsync();
+            return result;
         }
     }
 }
