@@ -2,14 +2,14 @@
 using System.IO;
 using WordMemo.DataAccess;
 
-namespace WordMemo.Utils
+namespace WordMemo.UnitTests.Utils
 {
     public class FileHelper : IFileHelper
     {
         public string GetLocalFilePath(string filename)
         {
-            string path = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-             
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            
             return Path.Combine(path, filename);
         }
 
