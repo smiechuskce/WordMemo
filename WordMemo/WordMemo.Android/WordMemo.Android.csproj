@@ -142,6 +142,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Utils\FileHelper.cs" />
     <Compile Include="ViewAdapters\WordsAdapter.cs" />
+    <Compile Include="ViewHelpers\RecyclerItemTouchHelper.cs" />
     <Compile Include="ViewHolders\WordsViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>

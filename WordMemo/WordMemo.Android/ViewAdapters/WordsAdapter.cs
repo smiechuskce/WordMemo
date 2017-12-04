@@ -74,7 +74,7 @@ namespace WordMemo.ViewAdapters
                     args.Handled = false;
             };
 
-
+            
         }
 
         public override int ItemCount => _words?.Count ?? 0;

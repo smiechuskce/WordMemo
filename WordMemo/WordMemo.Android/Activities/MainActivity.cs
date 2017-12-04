@@ -19,12 +19,13 @@ using WordMemo.DataAccess.Managers;
 using WordMemo.Utils;
 using WordMemo.ViewModels;
 using WordMemo.ViewAdapters;
+using WordMemo.ViewHelpers;
 using WordMemo.ViewHolders;
 
 namespace WordMemo
 {
 	[Activity(Label = "WordMemo", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
-	public class MainActivity : AppCompatActivity
+	public class MainActivity : AppCompatActivity, IRecyclerItemTouchHelperListener
     { 
         private DrawerLayout _mDrawerLayout;
         private NavigationView _mNavigationView;
@@ -117,6 +118,8 @@ namespace WordMemo
 
             };
 
+            
+
 	        _mRecyclerView.ChildViewAttachedToWindow += (sender, args) =>
 	        {
 	            View lastRow = _mRecyclerView.GetLayoutManager().GetChildAt(_mWordsAdapter.ItemCount - 1);
@@ -127,6 +130,7 @@ namespace WordMemo
 
             _mRecyclerView.ClearFocus();
             HideKeyboard();
+
         }
 
 	    private void HideKeyboard()
@@ -134,6 +138,11 @@ namespace WordMemo
             InputMethodManager inputMethod = (InputMethodManager)this.GetSystemService(Context.InputMethodService);
             inputMethod.HideSoftInputFromWindow(this.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
         }
+
+	    public void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position)
+	    {
+	        throw new System.NotImplementedException();
+	    }
     }
 }
 
