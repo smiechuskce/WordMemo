@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
@@ -83,5 +84,13 @@ namespace WordMemo.ViewAdapters
         {
             _words.Add(newWord);
         }
+
+        public async void DeleteWord(int position)
+        {
+            Word wordToRemove = _words[position];
+            _words.Remove(wordToRemove);
+            await _activity.WordLogic.DeleteWord(wordToRemove);
+        }
+
     }
 }

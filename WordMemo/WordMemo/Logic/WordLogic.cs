@@ -30,6 +30,7 @@ namespace WordMemo.DataAccess.Logic
         public async Task DeleteWord(Word word)
         {
             await _wordManager.Delete(word);
+            await UpdateWordList();
         }
 
         public async Task UpdateWordList()

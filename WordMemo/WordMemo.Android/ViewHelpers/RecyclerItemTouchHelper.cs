@@ -11,27 +11,33 @@ using Android.Support.V7.Widget;
 using Android.Support.V7.Widget.Helper;
 using Android.Views;
 using Android.Widget;
+using WordMemo.ViewAdapters;
+using WordMemo.ViewHolders;
 
 namespace WordMemo.ViewHelpers
 {
-    public class RecyclerItemTouchHelper : ItemTouchHelper.SimpleCallback
+    public class RecyclerItemTouchHelper : ItemTouchHelper.Callback
     {
-        public RecyclerItemTouchHelper(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        private IRecyclerItemTouchHelperListener _listener;
+
+        public RecyclerItemTouchHelper(IRecyclerItemTouchHelperListener listener)
         {
+            _listener = listener;
         }
 
-        public RecyclerItemTouchHelper(int dragDirs, int swipeDirs) : base(dragDirs, swipeDirs)
+        public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
         {
+            return MakeMovementFlags(0, ItemTouchHelper.Left);
         }
 
         public override bool OnMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction)
         {
-            throw new NotImplementedException();
+            _listener.OnSwiped(viewHolder, direction, viewHolder.AdapterPosition);
         }
     }
 

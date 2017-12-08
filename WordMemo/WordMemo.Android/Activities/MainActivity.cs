@@ -12,6 +12,8 @@ using Android.Support.V7.App;
 using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Support.V7.Widget;
+using Android.Support.V7.Widget.Helper;
+using Android.Util;
 using Android.Views.InputMethods;
 using WordMemo.DataAccess.Contracts;
 using WordMemo.DataAccess.Logic;
@@ -128,6 +130,12 @@ namespace WordMemo
 	                lastRow.RequestFocus();
 	        };
 
+            _mRecyclerView.SetItemAnimator(new DefaultItemAnimator());
+
+            ItemTouchHelper.Callback callback = new RecyclerItemTouchHelper(this);
+            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+            itemTouchHelper.AttachToRecyclerView(_mRecyclerView);
+
             _mRecyclerView.ClearFocus();
             HideKeyboard();
 
@@ -139,10 +147,11 @@ namespace WordMemo
             inputMethod.HideSoftInputFromWindow(this.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
         }
 
-	    public void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position)
-	    {
-	        throw new System.NotImplementedException();
-	    }
+        public void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position)
+        {
+            _mWordsAdapter.NotifyItemRemoved(position);
+            _mWordsAdapter.DeleteWord(position);           
+        }
     }
 }
 
