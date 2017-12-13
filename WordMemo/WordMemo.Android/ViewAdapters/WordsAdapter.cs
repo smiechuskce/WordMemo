@@ -19,7 +19,7 @@ namespace WordMemo.ViewAdapters
         private readonly List<Word> _words;
         private readonly MainActivity _activity;
 
-        public WordsAdapter(MainActivity activity, ref List<Word> words)
+        public WordsAdapter(MainActivity activity, List<Word> words)
         {
             _words = words;
             _activity = activity;
@@ -51,7 +51,7 @@ namespace WordMemo.ViewAdapters
 
             vh.BaseWord.FocusChange += async (sender, args) =>
             {
-                if (!args.HasFocus)
+                if (_words.Count > 0 && !args.HasFocus)
                 {
                     string text = _words[position].BaseText;
                     await _activity.WordLogic.SaveWord(_words[position]);
@@ -60,7 +60,7 @@ namespace WordMemo.ViewAdapters
 
             vh.WordTranslation.FocusChange += async (sender, args) =>
             {
-                if (!args.HasFocus)
+                if (_words.Count > 0 && !args.HasFocus)
                     await _activity.WordLogic.SaveWord(_words[position]);
             };
 

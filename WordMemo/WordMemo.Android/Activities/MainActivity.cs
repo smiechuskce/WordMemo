@@ -98,7 +98,7 @@ namespace WordMemo
             await WordLogic.UpdateWordList();
             _mWords = WordLogic.WordList;
 
-            _mWordsAdapter = new WordsAdapter(this, ref _mWords);
+            _mWordsAdapter = new WordsAdapter(this, _mWords);
             
             _mRecyclerView.SetAdapter(_mWordsAdapter);
 
