@@ -43,5 +43,10 @@ namespace WordMemo.DataAccess.Logic
         {
             return await _wordManager.GetAll();
         }
+
+        public List<Word> ImportFromFile(string fileName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

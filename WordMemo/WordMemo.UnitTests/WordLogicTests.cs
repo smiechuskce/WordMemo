@@ -49,6 +49,16 @@ namespace WordMemo.UnitTests
             Assert.AreEqual(wordsGetResult.ToList().Count, 0);
         }
 
+        [Test]
+        public void words_are_being_imported_from_csv_file()
+        {
+            var fileName = "words.csv";
+
+            var words = mWordLogic.ImportFromFile(fileName);
+
+            Assert.True(words.Count > 0, "Word list is empty. Something went wrong during CSV import.");
+        }
+
         public async Task SaveWord()
         {
             await mWordLogic.SaveWord(new Word("robić", "do"));
