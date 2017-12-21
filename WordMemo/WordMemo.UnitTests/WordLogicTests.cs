@@ -7,6 +7,7 @@ using NUnit.Framework;
 using WordMemo.DataAccess.Contracts;
 using WordMemo.DataAccess.Logic;
 using WordMemo.DataAccess.Managers;
+using WordMemo.DataAccess.SharedUtils;
 using WordMemo.ViewModels;
 
 namespace WordMemo.UnitTests
@@ -17,10 +18,10 @@ namespace WordMemo.UnitTests
         public WordLogic mWordLogic;
 
         [SetUp]
-        public void Init()
+        public async void Init()
         {
             mWordLogic = new WordLogic(new PersistentWordManager<Word>(":memory:"));
-            mWordLogic.UpdateWordList().Wait();
+            await mWordLogic.UpdateWordList();
         }
 
         [Test]
@@ -54,9 +55,10 @@ namespace WordMemo.UnitTests
         {
             var fileName = "words.csv";
 
-            var words = mWordLogic.ImportFromFile(fileName);
+            FileHelper fh = new FileHelper();
+            mWordLogic.ImportFromFile(fileName);
 
-            Assert.True(words.Count > 0, "Word list is empty. Something went wrong during CSV import.");
+            Assert.True(mWordLogic.WordList.Count > 0, "Word list is empty. Something went wrong during CSV import.");
         }
 
         public async Task SaveWord()

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WordMemo.DataAccess.Contracts;
+using WordMemo.DataAccess.SharedUtils;
 using WordMemo.ViewModels;
 
 namespace WordMemo.DataAccess.Logic
@@ -44,9 +46,19 @@ namespace WordMemo.DataAccess.Logic
             return await _wordManager.GetAll();
         }
 
-        public List<Word> ImportFromFile(string fileName)
+        public async void ImportFromFile(string fileName)
         {
-            throw new NotImplementedException();
+            IFileHelper fileHelper = new FileHelper();
+            var csv = await fileHelper.ReadFileContent(fileName);
+
+            WordList.Add(GetWordFromCsvLine(csv));
+        }
+
+        private Word GetWordFromCsvLine(string line)
+        {
+            Word word = new Word(line.Split(',')[0], line.Split(',')[1]);
+
+            return word;
         }
     }
 }

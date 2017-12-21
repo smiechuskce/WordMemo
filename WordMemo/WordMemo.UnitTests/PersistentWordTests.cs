@@ -8,7 +8,6 @@ using NUnit.Framework;
 using SQLite;
 using WordMemo.DataAccess.Contracts;
 using WordMemo.DataAccess.Managers;
-using WordMemo.UnitTests.Utils;
 using WordMemo.ViewModels;
 
 namespace WordMemo.UnitTests
@@ -48,12 +47,26 @@ namespace WordMemo.UnitTests
         [Test]
         public async void database_contains_no_words_after_word_delete()
         {
-            var newWord = GetExistingWordEntity();
+            string wordTextToDelete = GetExistingWordEntity().BaseText;
+            var newWord = await PersistentManager.GetByBaseText(wordTextToDelete);
 
-            await PersistentManager.Delete(newWord);
+            if (newWord != null)
+            {
+                await PersistentManager.Delete(newWord);
+            }
+            
             var dbRowsCount = await PersistentManager.GetAll();
 
             Assert.AreEqual(0, dbRowsCount.ToList().Count);
+        }
+
+        [TearDown]
+        public async void Finish()
+        {
+            string wordTextToDelete = GetExistingWordEntity().BaseText;
+            var wordToDelete = await PersistentManager.GetByBaseText(wordTextToDelete);
+
+            await PersistentManager.Delete(wordToDelete);
         }
 
         private Word GetExistingWordEntity()
@@ -74,12 +87,5 @@ namespace WordMemo.UnitTests
                 TranslationText = "porządek"
             };
         }
-
-        [TearDown]
-        public async void Finish()
-        {
-            await PersistentManager.Delete(GetExistingWordEntity());
-        }
-
     }
 }

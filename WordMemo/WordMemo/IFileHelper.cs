@@ -10,6 +10,8 @@ namespace WordMemo.DataAccess
     {
         string GetLocalFilePath(string filename);
 
-        int DeleteFile(string filename);
+        void DeleteFile(string filename);
+
+        Task<string> ReadFileContent(string fileName);
     }
 }

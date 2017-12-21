@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using WordMemo.DataAccess;
 
 namespace WordMemo.Utils
@@ -13,9 +14,14 @@ namespace WordMemo.Utils
             return Path.Combine(path, filename);
         }
 
-        public int DeleteFile(string filename)
+        public void DeleteFile(string filename)
         {
             throw new NotImplementedException();
-        } 
+        }
+
+        public Task<string> ReadFileContent(string fileName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
