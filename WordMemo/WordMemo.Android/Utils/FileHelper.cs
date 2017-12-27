@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using WordMemo.DataAccess;
 
 namespace WordMemo.Utils
 {
-    public class FileHelper : IFileHelper
+    public class FileHelper : IFileHelper<string>
     {
         public string GetLocalFilePath(string filename)
         {
@@ -19,9 +20,27 @@ namespace WordMemo.Utils
             throw new NotImplementedException();
         }
 
-        public Task<string> ReadFileContent(string fileName)
+        public string ReadFileContent(string fileName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var sr = new StreamReader(fileName))
+                {
+                    StringBuilder sb = new StringBuilder();
+                 
+                    while (!sr.EndOfStream)
+                    {
+                        sb.Append(sr.ReadLine());
+                    }
+
+                    return sb.ToString();
+                }
+            }
+            catch (Exception)
+            {
+                // TODO: Add error logging
+                throw;
+            }
         }
     }
 }

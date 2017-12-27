@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -19,7 +21,7 @@ namespace WordMemo.UnitTests
 
         [SetUp]
         public async void Init()
-        {
+        {          
             mWordLogic = new WordLogic(new PersistentWordManager<Word>(":memory:"));
             await mWordLogic.UpdateWordList();
         }
@@ -27,12 +29,14 @@ namespace WordMemo.UnitTests
         [Test]
         public async void word_is_updated_after_modifying_it()
         {
+
             // Arrange
+            await mWordLogic.UpdateWordList();
             Word word = new Word(1, "testować", "to test");
             mWordLogic.WordList.Add(word);
 
             // Act
-            await SaveWord();
+            UpdateWord(word);
 
             //Assert
             Assert.AreEqual("1. robić => do", mWordLogic.WordList[0].ToString());
@@ -51,19 +55,20 @@ namespace WordMemo.UnitTests
         }
 
         [Test]
-        public void words_are_being_imported_from_csv_file()
+        public void words_are_being_imported_from_csv_text()
         {
-            var fileName = "words.csv";
+            string wordCsvTextContent = File.ReadAllText("words.csv");
 
-            FileHelper fh = new FileHelper();
-            mWordLogic.ImportFromFile(fileName);
+            mWordLogic.ImportFromCsv(wordCsvTextContent);
 
             Assert.True(mWordLogic.WordList.Count > 0, "Word list is empty. Something went wrong during CSV import.");
         }
 
-        public async Task SaveWord()
+        private async void UpdateWord(Word word)
         {
-            await mWordLogic.SaveWord(new Word("robić", "do"));
+            word.BaseText = "robić";
+            word.TranslationText = "do";
+            await mWordLogic.SaveWord(word);
         } 
     }
 }

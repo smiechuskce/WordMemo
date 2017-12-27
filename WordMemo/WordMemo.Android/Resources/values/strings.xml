@@ -4,6 +4,7 @@
 	<string name="btn_title_search">Search</string>
 	<string name="nav_title_wordlist">Word list</string>
 	<string name="nav_title_export_words">Export words</string>
+  <string name="nav_title_import_words">Import words</string>
 	<string name="nav_title_settings">Settings</string>
 
   <string name="text_no_data_on_list">The list is empty</string>

@@ -64,13 +64,40 @@ namespace WordMemo
 
             _mNavigationView.NavigationItemSelected += (sender, e) =>
             {
-                e.MenuItem.SetChecked(true);
+                var menuItem = e.MenuItem;
+                menuItem.SetChecked(true);
+
+                switch (menuItem.ItemId)
+                {
+                    case Resource.Id.nav_import_words:
+                        Intent intent = new Intent(Intent.ActionOpenDocument);
+                        intent.AddCategory(Intent.CategoryOpenable);
+                        intent.SetType("text/*");
+                        intent.SetFlags(ActivityFlags.GrantReadUriPermission);
+                        StartActivityForResult(intent, 1);
+                        break;
+                    default:
+                        Toast.MakeText(Application.Context, "Something Wrong", ToastLength.Long).Show();
+                        break;
+                }
+
                 _mDrawerLayout.CloseDrawers();
             };		 
 
             Window.SetSoftInputMode(SoftInput.AdjustPan);
 		}
 
+	    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+	    {
+	        base.OnActivityResult(requestCode, resultCode, data);
+
+	        if (resultCode == Result.Ok && data != null && requestCode == 1)
+	        {
+                FileHelper fh = new FileHelper();
+	            
+	            Toast.MakeText(Application.Context, "The CSV file content is: " + fh.ReadFileContent(data.Data.ToString()), ToastLength.Long).Show();
+	        }
+	    }
         // Capture and handle click event on FloatingActionButton
         // If keyboard is being shown hide the FloatingActionButton
 
@@ -92,10 +119,11 @@ namespace WordMemo
             return base.OnOptionsItemSelected(item);
         }
 
+
 	    private async Task Init()
 	    {
             WordLogic = new WordLogic(new PersistentWordManager<Word>(new FileHelper().GetLocalFilePath("WordMemo.db")));
-            await WordLogic.UpdateWordList();
+            WordLogic.UpdateWordList();
             _mWords = WordLogic.WordList;
 
             _mWordsAdapter = new WordsAdapter(this, _mWords);

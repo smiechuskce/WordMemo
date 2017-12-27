@@ -46,19 +46,25 @@ namespace WordMemo.DataAccess.Logic
             return await _wordManager.GetAll();
         }
 
-        public async void ImportFromFile(string fileName)
+        public void ImportFromCsv(string csv)
         {
-            IFileHelper fileHelper = new FileHelper();
-            var csv = await fileHelper.ReadFileContent(fileName);
-
-            WordList.Add(GetWordFromCsvLine(csv));
+            WordList.AddRange(GetWordsFromCsv(csv));
         }
 
-        private Word GetWordFromCsvLine(string line)
+        private IEnumerable<Word> GetWordsFromCsv(string csv)
         {
-            Word word = new Word(line.Split(',')[0], line.Split(',')[1]);
+            List<Word> words = new List<Word>();
 
-            return word;
+            using (var reader = new StreamReader(new MemoryStream(Encoding.UTF8.GetBytes(csv))))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    words.Add(new Word(line.Split(',')[0], line.Split(',')[1]));
+                }
+            }
+           
+            return words;
         }
     }
 }

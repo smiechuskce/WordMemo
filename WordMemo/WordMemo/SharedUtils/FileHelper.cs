@@ -7,7 +7,7 @@ using WordMemo.DataAccess;
 
 namespace WordMemo.DataAccess.SharedUtils
 {
-    public class FileHelper : IFileHelper
+    public class FileHelper : IFileHelper<Task<string>>
     {
         public string GetLocalFilePath(string filename)
         {
@@ -24,13 +24,13 @@ namespace WordMemo.DataAccess.SharedUtils
             await file.DeleteAsync();
         }
 
-        public async Task<string> ReadFileContent(string fileName)
+        public async Task<string> ReadFileContent(string path)
         {
-            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            IFile file = await FileSystem.Current.GetFileFromPathAsync(path);
 
-            IFile file = await rootFolder.GetFileAsync(fileName);
+            var text = await file.ReadAllTextAsync();
 
-            return await file.ReadAllTextAsync();
+            return text;
         }
     }
 }

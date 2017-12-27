@@ -1,5 +1,6 @@
 .vs/
 WordMemo/.vs
+WordMemo/UpgradeLog*
 WordMemo/WordMemo.Android/bin
 WordMemo/WordMemo.Android/obj
 WordMemo/WordMemo.Android/GettingStarted.Xamarin

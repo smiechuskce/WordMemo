@@ -2143,26 +2143,26 @@ namespace WordMemo
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02006f
-			public const int avd_hide_password_1 = 2130837615;
-			
 			// aapt resource value: 0x7f020070
-			public const int avd_hide_password_2 = 2130837616;
+			public const int avd_hide_password_1 = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int avd_hide_password_3 = 2130837617;
+			public const int avd_hide_password_2 = 2130837617;
+			
+			// aapt resource value: 0x7f020072
+			public const int avd_hide_password_3 = 2130837618;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020072
-			public const int avd_show_password_1 = 2130837618;
-			
 			// aapt resource value: 0x7f020073
-			public const int avd_show_password_2 = 2130837619;
+			public const int avd_show_password_1 = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int avd_show_password_3 = 2130837620;
+			public const int avd_show_password_2 = 2130837620;
+			
+			// aapt resource value: 0x7f020075
+			public const int avd_show_password_3 = 2130837621;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -2195,52 +2195,55 @@ namespace WordMemo
 			public const int ic_menu_white_36dp = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int ic_search_black_36dp = 2130837599;
+			public const int ic_package_up_black_36dp = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_search_white = 2130837600;
+			public const int ic_search_black_36dp = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_settings_black_36dp = 2130837601;
+			public const int ic_search_white = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int navigation_empty_icon = 2130837602;
+			public const int ic_settings_black_36dp = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int notification_action_background = 2130837603;
+			public const int navigation_empty_icon = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_bg = 2130837604;
+			public const int notification_action_background = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notification_bg_low = 2130837605;
+			public const int notification_bg = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_bg_low_normal = 2130837606;
+			public const int notification_bg_low = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_bg_low_pressed = 2130837607;
+			public const int notification_bg_low_normal = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_bg_normal = 2130837608;
+			public const int notification_bg_low_pressed = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int notification_bg_normal_pressed = 2130837609;
+			public const int notification_bg_normal = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_icon_background = 2130837610;
-			
-			// aapt resource value: 0x7f02006d
-			public const int notification_template_icon_bg = 2130837613;
-			
-			// aapt resource value: 0x7f02006e
-			public const int notification_template_icon_low_bg = 2130837614;
+			public const int notification_bg_normal_pressed = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_tile_bg = 2130837611;
+			public const int notification_icon_background = 2130837611;
+			
+			// aapt resource value: 0x7f02006e
+			public const int notification_template_icon_bg = 2130837614;
+			
+			// aapt resource value: 0x7f02006f
+			public const int notification_template_icon_low_bg = 2130837615;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notify_panel_notification_icon_bg = 2130837612;
+			public const int notification_tile_bg = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int notify_panel_notification_icon_bg = 2130837613;
 			
 			static Drawable()
 			{
@@ -2504,8 +2507,8 @@ namespace WordMemo
 			// aapt resource value: 0x7f08008e
 			public const int media_actions = 2131230862;
 			
-			// aapt resource value: 0x7f0800a6
-			public const int menu_search = 2131230886;
+			// aapt resource value: 0x7f0800a7
+			public const int menu_search = 2131230887;
 			
 			// aapt resource value: 0x7f080022
 			public const int middle = 2131230754;
@@ -2516,11 +2519,14 @@ namespace WordMemo
 			// aapt resource value: 0x7f080019
 			public const int multiply = 2131230745;
 			
-			// aapt resource value: 0x7f0800a4
-			public const int nav_export_words = 2131230884;
-			
 			// aapt resource value: 0x7f0800a5
-			public const int nav_settings = 2131230885;
+			public const int nav_export_words = 2131230885;
+			
+			// aapt resource value: 0x7f0800a4
+			public const int nav_import_words = 2131230884;
+			
+			// aapt resource value: 0x7f0800a6
+			public const int nav_settings = 2131230886;
 			
 			// aapt resource value: 0x7f080087
 			public const int nav_view = 2131230855;
@@ -3158,7 +3164,10 @@ namespace WordMemo
 			public const int nav_title_export_words = 2131427372;
 			
 			// aapt resource value: 0x7f0b002d
-			public const int nav_title_settings = 2131427373;
+			public const int nav_title_import_words = 2131427373;
+			
+			// aapt resource value: 0x7f0b002e
+			public const int nav_title_settings = 2131427374;
 			
 			// aapt resource value: 0x7f0b002b
 			public const int nav_title_wordlist = 2131427371;
@@ -3184,14 +3193,14 @@ namespace WordMemo
 			// aapt resource value: 0x7f0b0014
 			public const int status_bar_notification_info_overflow = 2131427348;
 			
-			// aapt resource value: 0x7f0b002e
-			public const int text_no_data_on_list = 2131427374;
-			
 			// aapt resource value: 0x7f0b002f
-			public const int text_view_base_word = 2131427375;
+			public const int text_no_data_on_list = 2131427375;
 			
 			// aapt resource value: 0x7f0b0030
-			public const int text_view_word_translation = 2131427376;
+			public const int text_view_base_word = 2131427376;
+			
+			// aapt resource value: 0x7f0b0031
+			public const int text_view_word_translation = 2131427377;
 			
 			static String()
 			{

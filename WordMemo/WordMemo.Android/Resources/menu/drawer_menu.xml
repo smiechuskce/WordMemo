@@ -5,9 +5,14 @@
 			android:icon="@drawable/ic_list_black_36dp"
 			android:title="@string/nav_title_wordlist" />
 		
+    <item
+      android:id="@+id/nav_import_words" 
+      android:icon="@drawable/ic_archive_black_36dp"
+      android:title="@string/nav_title_import_words"/>
+    
 		<item
 			android:id="@+id/nav_export_words"
-			android:icon="@drawable/ic_archive_black_36dp"
+			android:icon="@drawable/ic_package_up_black_36dp"
 			android:title="@string/nav_title_export_words" />
 		
 		<item
