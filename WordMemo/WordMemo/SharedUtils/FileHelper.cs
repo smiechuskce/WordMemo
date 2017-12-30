@@ -7,7 +7,7 @@ using WordMemo.DataAccess;
 
 namespace WordMemo.DataAccess.SharedUtils
 {
-    public class FileHelper : IFileHelper<Task<string>>
+    public class FileHelper : IFileHelper<string, Task<string>>
     {
         public string GetLocalFilePath(string filename)
         {

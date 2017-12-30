@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WordMemo.DataAccess
 {
-    public interface IFileHelper<T>
+    public interface IFileHelper<T,K>
     {
         string GetLocalFilePath(string filename);
 
         void DeleteFile(string filename);
 
-        T ReadFileContent(string fileName);
+        K ReadFileContent(T file);
     }
 }

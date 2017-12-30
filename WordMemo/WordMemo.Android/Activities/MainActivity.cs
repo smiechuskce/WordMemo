@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Android;
 using Android.App;
 using Android.Content;
+using Android.Database;
+using Android.Net;
 using Android.Widget;
 using Android.OS;
+using Android.Provider;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Support.Design.Widget;
@@ -94,8 +98,10 @@ namespace WordMemo
 	        if (resultCode == Result.Ok && data != null && requestCode == 1)
 	        {
                 FileHelper fh = new FileHelper();
-	            
-	            Toast.MakeText(Application.Context, "The CSV file content is: " + fh.ReadFileContent(data.Data.ToString()), ToastLength.Long).Show();
+
+                ContentResolver cr = this.ApplicationContext.ContentResolver;
+
+	            Toast.MakeText(Application.Context, "The CSV file content is: " + fh.ReadFileContent(cr.OpenInputStream(data.Data)), ToastLength.Long).Show();
 	        }
 	    }
         // Capture and handle click event on FloatingActionButton
@@ -118,7 +124,6 @@ namespace WordMemo
 
             return base.OnOptionsItemSelected(item);
         }
-
 
 	    private async Task Init()
 	    {
@@ -145,10 +150,7 @@ namespace WordMemo
                 HideKeyboard();
 
                 _mRecyclerView.SmoothScrollToPosition(bottomPosition);
-
-            };
-
-            
+            };            
 
 	        _mRecyclerView.ChildViewAttachedToWindow += (sender, args) =>
 	        {
@@ -166,7 +168,6 @@ namespace WordMemo
 
             _mRecyclerView.ClearFocus();
             HideKeyboard();
-
         }
 
 	    private void HideKeyboard()

@@ -6,7 +6,7 @@ using WordMemo.DataAccess;
 
 namespace WordMemo.Utils
 {
-    public class FileHelper : IFileHelper<string>
+    public class FileHelper : IFileHelper<Stream, string>
     {
         public string GetLocalFilePath(string filename)
         {
@@ -20,17 +20,18 @@ namespace WordMemo.Utils
             throw new NotImplementedException();
         }
 
-        public string ReadFileContent(string fileName)
+        public string ReadFileContent(Stream fileStream)
         {
             try
             {
-                using (var sr = new StreamReader(fileName))
+                using (var sr = new StreamReader(fileStream))
                 {
                     StringBuilder sb = new StringBuilder();
                  
                     while (!sr.EndOfStream)
                     {
                         sb.Append(sr.ReadLine());
+                        sb.Append(Environment.NewLine);
                     }
 
                     return sb.ToString();
