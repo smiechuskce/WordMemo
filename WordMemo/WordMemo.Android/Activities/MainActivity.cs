@@ -1,34 +1,24 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using Android;
 using Android.App;
 using Android.Content;
-using Android.Database;
-using Android.Net;
-using Android.Widget;
 using Android.OS;
-using Android.Provider;
+using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
-using Android.Support.Design.Widget;
-using Android.Views;
 using Android.Support.V7.Widget;
 using Android.Support.V7.Widget.Helper;
-using Android.Util;
+using Android.Views;
 using Android.Views.InputMethods;
-using WordMemo.DataAccess.Contracts;
-using WordMemo.DataAccess.Logic;
-using WordMemo.DataAccess.Managers;
+using Android.Widget;
+using WordMemo.Logic;
+using WordMemo.Managers;
 using WordMemo.Utils;
-using WordMemo.ViewModels;
 using WordMemo.ViewAdapters;
 using WordMemo.ViewHelpers;
-using WordMemo.ViewHolders;
+using WordMemo.ViewModels;
 
-namespace WordMemo
+namespace WordMemo.Activities
 {
 	[Activity(Label = "WordMemo", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
 	public class MainActivity : AppCompatActivity, IRecyclerItemTouchHelperListener
@@ -101,7 +91,10 @@ namespace WordMemo
 
                 ContentResolver cr = this.ApplicationContext.ContentResolver;
 
-	            Toast.MakeText(Application.Context, "The CSV file content is: " + fh.ReadFileContent(cr.OpenInputStream(data.Data)), ToastLength.Long).Show();
+                WordLogic.ImportFromCsv(fh.ReadFileContent(cr.OpenInputStream(data.Data)));
+
+                _mRecyclerView.SmoothScrollToPosition(bottomPosition);
+	            //Toast.MakeText(Application.Context, "The CSV file content is: " + fh.ReadFileContent(cr.OpenInputStream(data.Data)), ToastLength.Long).Show();
 	        }
 	    }
         // Capture and handle click event on FloatingActionButton
@@ -128,7 +121,8 @@ namespace WordMemo
 	    private async Task Init()
 	    {
             WordLogic = new WordLogic(new PersistentWordManager<Word>(new FileHelper().GetLocalFilePath("WordMemo.db")));
-            WordLogic.UpdateWordList();
+
+	        await WordLogic.UpdateWordList();
             _mWords = WordLogic.WordList;
 
             _mWordsAdapter = new WordsAdapter(this, _mWords);

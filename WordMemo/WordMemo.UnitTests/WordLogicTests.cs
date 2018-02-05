@@ -6,10 +6,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using WordMemo.DataAccess.Contracts;
-using WordMemo.DataAccess.Logic;
-using WordMemo.DataAccess.Managers;
-using WordMemo.DataAccess.SharedUtils;
+using WordMemo.Contracts;
+using WordMemo.Logic;
+using WordMemo.Managers;
+using WordMemo.SharedUtils;
 using WordMemo.ViewModels;
 
 namespace WordMemo.UnitTests

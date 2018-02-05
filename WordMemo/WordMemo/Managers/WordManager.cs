@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using WordMemo.DataAccess.Contracts;
+using WordMemo.Contracts;
 
 namespace WordMemo.ViewModels
 {

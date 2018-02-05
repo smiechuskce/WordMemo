@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WordMemo.DataAccess
+namespace WordMemo
 {
     public interface IFileHelper<T,K>
     {

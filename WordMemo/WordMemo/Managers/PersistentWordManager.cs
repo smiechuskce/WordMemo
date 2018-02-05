@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using WordMemo.DataAccess.Contracts;
+using WordMemo.Contracts;
 using WordMemo.ViewModels;
 
-namespace WordMemo.DataAccess.Managers
+namespace WordMemo.Managers
 {
     public class PersistentWordManager<T> : IAsyncManager<T> where T : Word, new()
     {

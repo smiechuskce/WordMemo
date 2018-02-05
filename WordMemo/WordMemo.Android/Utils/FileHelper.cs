@@ -2,7 +2,6 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using WordMemo.DataAccess;
 
 namespace WordMemo.Utils
 {

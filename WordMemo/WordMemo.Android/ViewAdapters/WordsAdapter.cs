@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using WordMemo.Activities;
 using WordMemo.ViewHolders;
 using WordMemo.ViewModels;
 
@@ -73,9 +74,7 @@ namespace WordMemo.ViewAdapters
                 }
                 else
                     args.Handled = false;
-            };
-
-            
+            };           
         }
 
         public override int ItemCount => _words?.Count ?? 0;
@@ -83,6 +82,11 @@ namespace WordMemo.ViewAdapters
         public void AddWord(Word newWord)
         {
             _words.Add(newWord);
+        }
+
+        public void AddWords(IEnumerable<Word> words)
+        {
+            _words.AddRange(words);
         }
 
         public async void DeleteWord(int position)

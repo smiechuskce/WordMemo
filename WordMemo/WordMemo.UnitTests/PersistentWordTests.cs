@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using SQLite;
-using WordMemo.DataAccess.Contracts;
-using WordMemo.DataAccess.Managers;
+using WordMemo.Contracts;
+using WordMemo.Managers;
 using WordMemo.ViewModels;
 
 namespace WordMemo.UnitTests

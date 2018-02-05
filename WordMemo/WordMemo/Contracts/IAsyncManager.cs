@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WordMemo.ViewModels;
 
-namespace WordMemo.DataAccess.Contracts
+namespace WordMemo.Contracts
 {
     public interface IAsyncManager<T> : IManager<T>
     {

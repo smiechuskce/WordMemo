@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
-using WordMemo.DataAccess.Annotations;
+using WordMemo.Annotations;
 
 namespace WordMemo.ViewModels
 {

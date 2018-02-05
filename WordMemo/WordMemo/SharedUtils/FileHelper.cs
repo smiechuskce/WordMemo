@@ -3,9 +3,8 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using PCLStorage;
-using WordMemo.DataAccess;
 
-namespace WordMemo.DataAccess.SharedUtils
+namespace WordMemo.SharedUtils
 {
     public class FileHelper : IFileHelper<string, Task<string>>
     {

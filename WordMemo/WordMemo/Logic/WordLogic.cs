@@ -5,11 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WordMemo.DataAccess.Contracts;
-using WordMemo.DataAccess.SharedUtils;
+using WordMemo.Contracts;
+using WordMemo.SharedUtils;
 using WordMemo.ViewModels;
 
-namespace WordMemo.DataAccess.Logic
+namespace WordMemo.Logic
 {
     public class WordLogic
     {
@@ -46,9 +46,15 @@ namespace WordMemo.DataAccess.Logic
             return await _wordManager.GetAll();
         }
 
-        public void ImportFromCsv(string csv)
+        public async void ImportFromCsv(string csv)
         {
-            WordList.AddRange(GetWordsFromCsv(csv));
+            var words = GetWordsFromCsv(csv).ToList();
+
+            foreach (var word in words)
+            {
+                WordList.Add(word);
+                await SaveWord(word);
+            }
         }
 
         private IEnumerable<Word> GetWordsFromCsv(string csv)
